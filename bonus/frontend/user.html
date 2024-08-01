@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management - My epytodo</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: grey; /* Change this color to your preferred background color */
+            position: relative; /* Needed to position the top-right button */
+        }
+        .container {
+            text-align: center;
+        }
+        .user-select {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .button.create {
+            background-color: #008CBA;
+        }
+        .button.create:hover {
+            background-color: #007bb5;
+        }
+        .textarea-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .textarea-container textarea {
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .top-right-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .top-right-button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <a href="todos.html" class="top-right-button">Go to Todos</a>
+    <div class="container">
+        <h1>User Management</h1>
+        <div class="user-select">
+            <label for="users">Select User:</label>
+            <select id="users" name="users">
+                <option value="user1">User 1</option>
+                <option value="user2">User 2</option>
+                <option value="user3">User 3</option>
+                <!-- Add more users as needed -->
+            </select>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="modifyUser()">Modify</button>
+            <button class="button" onclick="deleteUser()">Delete</button>
+            <button class="button create" onclick="createUser()">Create New User</button>
+        </div>
+        <div class="textarea-container">
+            <textarea id="inputArea" placeholder="Write things here..."></textarea>
+            <textarea id="responseArea" placeholder="Response will be shown here..." readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        function modifyUser() {
+            const selectedUser = document.getElementById("users").value;
+            alert(`Modify user: ${selectedUser}`);
+            // Add your modify user logic here
+        }
+
+        function deleteUser() {
+            const selectedUser = document.getElementById("users").value;
+            alert(`Delete user: ${selectedUser}`);
+            // Add your delete user logic here
+        }
+
+        function createUser() {
+            alert("Create new user");
+            // Add your create user logic here
+        }
+
+        function getResponse() {
+            const input = document.getElementById("inputArea").value;
+            const responseArea = document.getElementById("responseArea");
+            responseArea.value = `Response for: ${input}`; // Sample response logic
+        }
+
+        function topRightButtonAction() {
+            alert("Top right button clicked");
+            // Add your top right button logic here
+        }
+
+        document.getElementById("inputArea").addEventListener("input", getResponse);
+    </script>
+</body>
+</html>
